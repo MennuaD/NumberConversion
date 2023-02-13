@@ -43,16 +43,13 @@ public class NumberConverter {
             System.out.print("Number: " + use.displayOriginalNumber());
             return use.digits;
         }
-        if (base == 10) {
-        }
         if (base == 8) {
+
         }
-        int[] use = new int[1];
-        return use;
+        return null;
     }
 
     public int[] convertToBinary() {
-        if (base == 2){}
         if (base == 10){
             int a = 0;
             int b = 0;
@@ -68,11 +65,27 @@ public class NumberConverter {
     }
 
     public int[] convertToOctal() {
+        if (base  == 10) {
+            int num = Integer.parseInt(displayOriginalNumber());
+            int remain = 0;
+            int sub = 1;
+            while (num != 0) {
+                remain += (num % 8) * sub;
+                num = num / 8;
+                sub = sub * 10;
+            }
+            NumberConverter oct = new NumberConverter(remain, 8);
+            return oct.getDigits();
+        }
+        if (base == 2){
+
+        }
         return null;
+        }
     }
 
 
-}
+
 
 /*
 int a = 0;
